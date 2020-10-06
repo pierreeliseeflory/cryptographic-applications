@@ -3,6 +3,10 @@
 #include <iostream>
 #include <cmath>
 
+// float IC = 0.0667;
+float IC = 0.071;
+
+
 std::string ReadFile(std::string file) {
     std::string text;
 
@@ -21,7 +25,6 @@ int KeySizeVigenere (int* values, int key_max_size, int string_length) {
     int length_substring;
     for (int m = 3; m < key_max_size; ++m) {
         ic_avg = 0;
-
         for (int i = 0; i < m; ++i) {
             ic = 0;
             length_substring = 0;
@@ -42,7 +45,7 @@ int KeySizeVigenere (int* values, int key_max_size, int string_length) {
         }
 
         ic_avg /= m;
-        if (std::abs(ic_avg - 0.071) < 0.01) {
+        if (std::abs(ic_avg - IC) < 0.01) {
             std::cout << "Taille de la clé: " << m << std::endl;
             return m;
         }
@@ -157,9 +160,7 @@ void DecodeVigenere (std::string chiffre) {
 }
 
 int main () {
-    
-    // std::string clear_text = ReadFile("Clair.txt");
-    std::cout << EncodeVigenere("Clair.txt", "BEAU") << std::endl;
+        // std::cout << EncodeVigenere("Clair.txt", "BEAU") << std::endl;
 
     // DecodeVigenere("Chiffre.txt"); 
 
