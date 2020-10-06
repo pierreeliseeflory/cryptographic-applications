@@ -3,9 +3,6 @@
 #include <iostream>
 #include <string>
 
-// #include <stdarg.h>
-// #include <obstack.h>
-
 void FermatFactorisation(unsigned long int target) {
   mpz_t t, s, n;
   mpz_inits(t, s, n, NULL);
